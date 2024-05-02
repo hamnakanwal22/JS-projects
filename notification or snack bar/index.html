@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification app</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/dac67e62d6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="buttons">
+        <button onclick="showTost(sucessMsg)">Sucess</button>
+        <button onclick="showTost(errorMsg)">Error</button>
+        <button onclick="showTost(invalidMsg)">Invalid</button>
+    </div>
+    <div id="tostBox">
+
+    </div>
+    <script>
+        let tostBox=document.getElementById('tostBox');
+        let sucessMsg='<i class="fa-solid fa-circle-check"></i> Sucessfully submitted';
+        let errorMsg='<i class="fa-solid fa-circle-xmark"></i> Please fix the error';
+        let invalidMsg='<i class="fa-solid fa-circle-exclamation"></i> Invalid input, check again';
+
+function showTost(msg){
+    let tost=document.createElement('div');
+    tost.classList.add('tost');
+    tost.innerHTML=msg;
+    tostBox.appendChild(tost); 
+if(msg.includes('error')){
+    tost.classList.add('error');
+
+}
+if(msg.includes('Invalid')){
+    tost.classList.add('invalid');
+
+}
+setTimeout(()=>{
+    tost.remove();
+},6000);
+}
+    </script>
+</body>
+</html>

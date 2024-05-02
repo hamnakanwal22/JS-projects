@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/dac67e62d6.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="gallery-wrap">
+        <img src="images/back.png" id="backbtn">
+        <div class="gallery">
+            <div>
+            <span><img src="images/pexels-eberhard-grossgasteiger-844297.jpg" alt=""></span>
+            <span><img src="images/pexels-jess-loiterton-5008169.jpg" alt=""></span>
+            <span><img src="images/pexels-katja-592077.jpg" alt=""></span>
+            </div>
+            <div>
+                <span><img src="images/IMG-20230728-WA0194(0).jpg" alt=""></span>
+                <span><img src="images/IMG_20230728_123953_606.jpg" alt=""></span>
+                <span><img src="images/IMG_20230930_184742.jpg" alt=""></span>
+                </div>
+                <div>
+                    <span><img src="images/IMG_20240410_141345_775.jpg" alt=""></span>
+                    <span><img src="images/IMG_20231026_213832.jpg" alt=""></span>
+                    <span><img src="images/pexels-bess-hamiti-36487.jpg" alt=""></span>
+                    </div>
+        </div>
+        <img src="images/next.png" id="nextbtn">
+    </div>
+   <script>
+    let scrollContainer=document.querySelector(".gallery");
+    let backBtn=document.getElementById("backbtn");
+    let nextBtn=document.getElementById("nextbtn");
+    scrollContainer.addEventListener("wheel",(evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+        scrollContainer.style.scrollBehavior="auto";
+    });
+    nextBtn.addEventListener("click",() =>{
+        scrollContainer.style.scrollBehavior="smooth";
+        scrollContainer.scrollLeft += 900;
+    });
+    backBtn.addEventListener("click",() =>{
+        scrollContainer.style.scrollBehavior="smooth";
+        scrollContainer.scrollLeft -= 900;
+    });
+   </script>
+</body>
+</html>
